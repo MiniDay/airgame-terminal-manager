@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<SplitPane xmlns:fx="http://javafx.com/fxml/1" dividerPositions="0.2" maxHeight="-Infinity" maxWidth="-Infinity"
+           minHeight="-Infinity"
+           minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0"
+           xmlns="http://javafx.com/javafx/11.0.1"
+           fx:controller="net.airgame.application.terminal.manager.controller.MainController">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+        <ToolBar prefHeight="34.0" prefWidth="157.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                 AnchorPane.topAnchor="0.0">
+            <Button mnemonicParsing="false" onAction="#newTerminal" text="新建"/>
+            <Button mnemonicParsing="false" onAction="#renameTerminal" text=" 重命名"/>
+            <Button mnemonicParsing="false" onAction="#deleteTerminal" text="删除"/>
+            <MenuButton fx:id="quickStart" mnemonicParsing="false" text="快捷新建"/>
+        </ToolBar>
+        <ScrollPane fitToHeight="true" fitToWidth="true" hvalue="0.74" layoutY="34.0" pannable="true"
+                    prefHeight="414.0" prefWidth="157.0" vvalue="0.68" AnchorPane.bottomAnchor="0.0"
+                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
+            <ListView fx:id="listView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                      onMouseClicked="#changeTerminal" prefHeight="406.0" prefWidth="155.0"/>
+        </ScrollPane>
+    </AnchorPane>
+    <AnchorPane fx:id="mainPane" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0"/>
+</SplitPane>

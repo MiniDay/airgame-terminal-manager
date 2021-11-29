@@ -1,0 +1,36 @@
+# 全局默认的输入（指 AirGame-TerminalManager 控制台输入到 内部程序 的）字符编码
+inputCharset = "UTF-8"
+# 全局默认的输出（指 内部程序 输出到 AirGame-TerminalManager 控制台的）字符编码
+outputCharset = "UTF-8"
+
+# 快捷启动配置
+[terminals]
+
+[[PowerShell]]
+test_a=1
+
+[terminals.PowerShell]
+startCommand = "powershell"
+workspace = "."
+inputCharset = "GBK"
+outputCharset = "GBK"
+[terminals.HamsterService]
+startCommand = "java -Dfile.encoding=UTF-8 -jar HamsterService.jar"
+workspace = "D:\\MinecraftServer\\HamsterService"
+# Windows 系统下的 BC 端一定要 加上 -Djline.terminal=jline.UnsupportedTerminal
+# 否则会由于 jline 找不到系统控制台窗口而发生异常，导致CPU占用多 10%， 内存占用多 800%
+[terminals."BungeeCord - 1"]
+startCommand = "java -Dfile.encoding=UTF-8 -Djline.terminal=jline.UnsupportedTerminal -jar BungeeCord.jar"
+workspace = "D:\\MinecraftServer\\BungeeCord - 1"
+[terminals."BungeeCord - 2"]
+startCommand = "java -Dfile.encoding=UTF-8 -Djline.terminal=jline.UnsupportedTerminal -jar BungeeCord.jar"
+workspace = "D:\\MinecraftServer\\BungeeCord - 2"
+[terminals."Spigot-1.16.5"]
+startCommand = "java -Dfile.encoding=UTF-8 -jar spigot-1.16.5.jar nogui"
+workspace = "D:\\MinecraftServer\\Spigot-1.16.5"
+[terminals."Spigot-1.16.5 - Test1"]
+startCommand = "java -Dfile.encoding=UTF-8 -jar spigot-1.16.5.jar nogui"
+workspace = "D:\\MinecraftServer\\Spigot-1.16.5 - Test1"
+[terminals."Spigot-1.16.5 - Test2"]
+startCommand = "java -Dfile.encoding=UTF-8 -jar spigot-1.16.5.jar nogui"
+workspace = "D:\\MinecraftServer\\Spigot-1.16.5 - Test2"

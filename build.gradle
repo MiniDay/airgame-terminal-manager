@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+}
+
+group 'net.airgame.application'
+version '1.0.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/com.electronwill.night-config/core
+    implementation 'com.electronwill.night-config:core:3.6.5'
+    // https://mvnrepository.com/artifact/com.electronwill.night-config/toml
+    implementation 'com.electronwill.night-config:toml:3.6.5'
+
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.setEncoding("UTF-8")
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType(Jar) {
+    from([rootProject.file("LICENSE")])
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+}
+
+jar {
+    archivesBaseName = "AirGame-TerminalManager"
+    from([
+            configurations.runtimeClasspath.collect {
+                it.isDirectory() ? it : zipTree(it)
+            }
+    ])
+    manifest.attributes([
+            "main-class": "net.airgame.application.terminal.manager.Bootstrap"
+    ])
+}
